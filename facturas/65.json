@@ -1,0 +1,19 @@
+{
+  "id": 65,
+  "fecha": "2025-12-08 20:47:14",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ ROA",
+      "subtotal": 3400.0
+    }
+  ],
+  "total": 3400.0,
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
