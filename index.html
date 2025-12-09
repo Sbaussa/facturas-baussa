@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturas Baus.SAS - Consulta tu Factura</title>
+    <title>Facturas SAS - Consulta tu Factura</title>
     <style>
         * {
             margin: 0;
@@ -374,7 +374,7 @@
         <div class="header">
             <div class="logo">📄</div>
             <h1>Facturas SAS</h1>
-            <p class="subtitle">Sistema POS Baus.SAS </p>
+            <p class="subtitle">Sistema profesional de consulta de facturas electrónicas</p>
         </div>
         
         <div id="content">
@@ -386,7 +386,7 @@
         
         <footer>
             <p>© 2025 Facturas SAS - Todos los derechos reservados</p>
-            <p style="margin-top: 5px; font-size: 12px;">Sistema de facturación electrónica (en proceso...)</p>
+            <p style="margin-top: 5px; font-size: 12px;">Sistema de facturación electrónica seguro</p>
         </footer>
     </div>
     
@@ -395,98 +395,74 @@
         const ventaId = urlParams.get('venta');
         const contentDiv = document.getElementById('content');
         
-        async function mostrarDetallesFactura(id) {
+        function mostrarDetallesFactura(id) {
             const facturaContent = document.getElementById('factura-content');
             
-            // URL del JSON con los datos de la factura
-            const jsonUrl = `https://raw.githubusercontent.com/Sbaussa/facturas-baussa/main/facturas/${id}.json`;
-            
-            try {
-                // Cargar datos del JSON
-                const response = await fetch(jsonUrl);
+            // Estructura HTML de la factura (simulando el PDF)
+            facturaContent.innerHTML = `
+                <div class="factura-header">
+                    <h2>TIENDA - POS SYSTEM</h2>
+                    <p>NIT: 123456789-12</p>
+                    <p>Calle Principal #123</p>
+                    <p>Tel: 300 928 8888</p>
+                </div>
                 
-                if (!response.ok) {
-                    throw new Error('JSON no encontrado');
-                }
+                <div class="factura-info">
+                    <div class="factura-info-item">
+                        <strong>Factura:</strong>
+                        <span>#${id}</span>
+                    </div>
+                    <div class="factura-info-item">
+                        <strong>Fecha:</strong>
+                        <span>${new Date().toLocaleDateString('es-CO', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        })}</span>
+                    </div>
+                    <div class="factura-info-item">
+                        <strong>Forma de Pago:</strong>
+                        <span>Efectivo</span>
+                    </div>
+                </div>
                 
-                const datos = await response.json();
+                <div class="factura-items">
+                    <div class="items-header">
+                        <div>Cant.</div>
+                        <div>Descripción</div>
+                        <div style="text-align: right;">Subtotal</div>
+                    </div>
+                    <div class="item-row">
+                        <div>1</div>
+                        <div>Producto de ejemplo</div>
+                        <div style="text-align: right;">COP $50.000</div>
+                    </div>
+                    <div class="item-row">
+                        <div>2</div>
+                        <div>Otro producto</div>
+                        <div style="text-align: right;">COP $100.000</div>
+                    </div>
+                </div>
                 
-                // Formatear total
-                const totalFormateado = `COP ${parseInt(datos.total).toLocaleString('es-CO')}`;
+                <div class="factura-total">
+                    <div class="total-row">
+                        <span>TOTAL:</span>
+                        <span>COP $150.000</span>
+                    </div>
+                </div>
                 
-                // Generar HTML de items
-                const itemsHtml = datos.items.map(item => {
-                    const subtotalFormateado = `COP ${parseInt(item.subtotal).toLocaleString('es-CO')}`;
-                    return `
-                        <div class="item-row">
-                            <div>${item.cantidad}</div>
-                            <div>${item.nombre}</div>
-                            <div style="text-align: right;">${subtotalFormateado}</div>
-                        </div>
-                    `;
-                }).join('');
-                
-                // Mostrar factura con datos reales
-                facturaContent.innerHTML = `
-                    <div class="factura-header">
-                        <h2>${datos.empresa.nombre}</h2>
-                        <p>NIT: ${datos.empresa.nit}</p>
-                        <p>${datos.empresa.direccion}</p>
-                        <p>Tel: ${datos.empresa.telefono}</p>
+                <div class="factura-qr">
+                    <div style="width: 100px; height: 100px; background: #f0f0f0; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                        <span style="font-size: 48px;">📱</span>
                     </div>
-                    
-                    <div class="factura-info">
-                        <div class="factura-info-item">
-                            <strong>Factura:</strong>
-                            <span>#${datos.id}</span>
-                        </div>
-                        <div class="factura-info-item">
-                            <strong>Fecha:</strong>
-                            <span>${datos.fecha}</span>
-                        </div>
-                        <div class="factura-info-item">
-                            <strong>Forma de Pago:</strong>
-                            <span>${datos.forma_pago}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="factura-items">
-                        <div class="items-header">
-                            <div>Cant.</div>
-                            <div>Descripción</div>
-                            <div style="text-align: right;">Subtotal</div>
-                        </div>
-                        ${itemsHtml}
-                    </div>
-                    
-                    <div class="factura-total">
-                        <div class="total-row">
-                            <span>TOTAL:</span>
-                            <span>${totalFormateado}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="factura-qr">
-                        <div style="width: 100px; height: 100px; background: #f0f0f0; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                            <span style="font-size: 48px;">📱</span>
-                        </div>
-                        <p>Escanea el código QR para ver esta factura</p>
-                        <p style="font-size: 10px; margin-top: 5px;">
-                            ${window.location.href}
-                        </p>
-                    </div>
-                `;
-                
-            } catch (error) {
-                // Si no se encuentra el JSON, mostrar error
-                facturaContent.innerHTML = `
-                    <div class="error">
-                        <h3>❌ Datos de Factura No Disponibles</h3>
-                        <p>No se pudieron cargar los detalles de la factura #${id}.</p>
-                        <p>El PDF está disponible para descarga, pero los datos detallados no están disponibles en este momento.</p>
-                    </div>
-                `;
-            }
+                    <p>Escanea el código QR para ver esta factura</p>
+                    <p style="font-size: 10px; margin-top: 5px;">
+                        ${window.location.href}
+                    </p>
+                </div>
+            `;
         }
         
         if (ventaId) {
