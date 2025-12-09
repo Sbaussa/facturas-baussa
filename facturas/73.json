@@ -1,0 +1,19 @@
+{
+  "id": 73,
+  "fecha": "2025-12-08 21:15:43",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 3,
+      "nombre": "POWERADE AZUL",
+      "subtotal": 18000.0
+    }
+  ],
+  "total": 18000.0,
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
