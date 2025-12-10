@@ -304,6 +304,16 @@
             margin-bottom: 10px;
         }
         
+        .debug-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+        }
+        
         .info-box {
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             padding: 30px;
@@ -409,16 +419,22 @@
         
         async function cargarFacturaReal(id) {
             try {
-                // ✅ Ruta relativa - busca en la misma carpeta donde está el index.html
-                const response = await fetch(`${id}.json`);
+                // Construir la URL completa para GitHub Pages
+                const baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '').replace(/\/$/, '');
+                const jsonUrl = `${baseUrl}/${id}.json`;
+                
+                console.log('Intentando cargar desde:', jsonUrl);
+                
+                const response = await fetch(jsonUrl);
                 
                 if (!response.ok) {
-                    throw new Error('Factura no encontrada en el servidor');
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
                 
                 const data = await response.json();
+                console.log('Datos cargados exitosamente:', data);
                 
-                // ✅ MOSTRAR DATOS REALES
+                // MOSTRAR DATOS REALES
                 const facturaHTML = `
                     <div class="invoice-info">
                         <h2>✅ Factura Localizada</h2>
@@ -474,7 +490,7 @@
                         </div>
                         
                         <div class="factura-qr">
-                            <img src="${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
+                            <img src="${baseUrl}/${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
                             <p>Escanea el código QR para compartir esta factura</p>
                             <p style="font-size: 10px; margin-top: 5px;">
                                 ${window.location.href}
@@ -483,7 +499,7 @@
                     </div>
                     
                     <div class="actions">
-                        <a href="${id}.pdf" 
+                        <a href="${baseUrl}/${id}.pdf" 
                            download="Factura_${id}.pdf" 
                            class="btn btn-primary">
                             📥 Descargar PDF
@@ -498,16 +514,29 @@
                 
             } catch (error) {
                 console.error('Error cargando factura:', error);
+                
+                const baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '').replace(/\/$/, '');
+                const jsonUrl = `${baseUrl}/${id}.json`;
+                
                 contentDiv.innerHTML = `
                     <div class="error">
                         <h3>❌ Error al Cargar Factura</h3>
                         <p>No se pudo cargar la factura #${id}</p>
                         <p><strong>Motivo:</strong> ${error.message}</p>
+                        
+                        <div class="debug-info">
+                            <strong>🔍 Información de Debug:</strong><br>
+                            URL intentada: ${jsonUrl}<br>
+                            Ubicación actual: ${window.location.href}<br>
+                            Base URL: ${baseUrl}
+                        </div>
+                        
                         <p style="margin-top: 20px;">Posibles causas:</p>
                         <ul style="margin-left: 20px; margin-top: 10px; list-style: inside;">
                             <li>La factura aún no ha sido sincronizada con GitHub</li>
                             <li>El número de factura es incorrecto</li>
                             <li>Problemas de conectividad</li>
+                            <li>El archivo JSON no está en la ubicación correcta</li>
                         </ul>
                         <p style="margin-top: 20px;">💡 <strong>Sugerencia:</strong> Espera unos minutos y vuelve a escanear el código QR.</p>
                     </div>
@@ -515,11 +544,10 @@
             }
         }
         
-        // ========== LÓGICA PRINCIPAL ==========
+        // LÓGICA PRINCIPAL
         if (ventaId) {
             cargarFacturaReal(ventaId);
         } else {
-            // Sin ID de venta - mostrar instrucciones
             contentDiv.innerHTML = `
                 <div class="info-box">
                     <h2>📋 Instrucciones de Uso</h2>
