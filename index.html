@@ -419,37 +419,48 @@
         
         async function cargarFacturaReal(id) {
             try {
-                // Obtener el directorio actual (donde está el index.html)
-                let currentPath = window.location.pathname;
+                // Construir URLs para probar múltiples ubicaciones posibles
+                const urls = [
+                    // Opción 1: Mismo directorio que index.html (facturas/)
+                    `./${id}.json`,
+                    // Opción 2: Ruta completa desde la raíz
+                    `https://sbaussa.github.io/facturas-baussa/facturas/${id}.json`,
+                    // Opción 3: Relativa a la raíz del repo
+                    `/facturas-baussa/facturas/${id}.json`
+                ];
                 
-                // Si termina en index.html, quitarlo
-                if (currentPath.endsWith('index.html')) {
-                    currentPath = currentPath.replace('index.html', '');
+                let data = null;
+                let urlExitosa = null;
+                
+                // Intentar cada URL hasta que una funcione
+                for (const url of urls) {
+                    try {
+                        console.log(`Intentando cargar desde: ${url}`);
+                        const response = await fetch(url);
+                        
+                        if (response.ok) {
+                            data = await response.json();
+                            urlExitosa = url;
+                            console.log(`✅ Éxito con URL: ${url}`);
+                            break;
+                        } else {
+                            console.log(`❌ Falló (${response.status}): ${url}`);
+                        }
+                    } catch (err) {
+                        console.log(`❌ Error con: ${url}`, err.message);
+                    }
                 }
                 
-                // Asegurarnos de que termina en /
-                if (!currentPath.endsWith('/')) {
-                    currentPath += '/';
+                if (!data) {
+                    throw new Error('No se pudo cargar el archivo JSON desde ninguna ubicación');
                 }
                 
-                // Construir la URL completa
-                const baseUrl = window.location.origin + currentPath;
-                const jsonUrl = `${baseUrl}${id}.json`;
-                
-                console.log('Path actual:', window.location.pathname);
-                console.log('Base URL:', baseUrl);
-                console.log('Intentando cargar desde:', jsonUrl);
-                
-                const response = await fetch(jsonUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                
-                const data = await response.json();
                 console.log('Datos cargados exitosamente:', data);
                 
-                // MOSTRAR DATOS REALES
+                // Determinar la URL base para otros recursos (PDF, QR)
+                const baseUrl = urlExitosa.replace(`${id}.json`, '');
+                
+                // MOSTRAR DATOS REALES DEL JSON
                 const facturaHTML = `
                     <div class="invoice-info">
                         <h2>✅ Factura Localizada</h2>
@@ -530,17 +541,6 @@
             } catch (error) {
                 console.error('Error cargando factura:', error);
                 
-                // Reconstruir la URL para mostrarla en el debug
-                let currentPath = window.location.pathname;
-                if (currentPath.endsWith('index.html')) {
-                    currentPath = currentPath.replace('index.html', '');
-                }
-                if (!currentPath.endsWith('/')) {
-                    currentPath += '/';
-                }
-                const baseUrl = window.location.origin + currentPath;
-                const jsonUrl = `${baseUrl}${id}.json`;
-                
                 contentDiv.innerHTML = `
                     <div class="error">
                         <h3>❌ Error al Cargar Factura</h3>
@@ -549,19 +549,22 @@
                         
                         <div class="debug-info">
                             <strong>🔍 Información de Debug:</strong><br>
-                            URL intentada: ${jsonUrl}<br>
+                            URLs intentadas:<br>
+                            1. ./${id}.json<br>
+                            2. https://sbaussa.github.io/facturas-baussa/facturas/${id}.json<br>
+                            3. /facturas-baussa/facturas/${id}.json<br><br>
                             Ubicación actual: ${window.location.href}<br>
-                            Base URL: ${baseUrl}
+                            Pathname: ${window.location.pathname}
                         </div>
                         
                         <p style="margin-top: 20px;">Posibles causas:</p>
                         <ul style="margin-left: 20px; margin-top: 10px; list-style: inside;">
-                            <li>La factura aún no ha sido sincronizada con GitHub</li>
+                            <li>La factura #${id} aún no ha sido sincronizada con GitHub</li>
                             <li>El número de factura es incorrecto</li>
+                            <li>El archivo ${id}.json no existe en el repositorio</li>
                             <li>Problemas de conectividad</li>
-                            <li>El archivo JSON no está en la ubicación correcta</li>
                         </ul>
-                        <p style="margin-top: 20px;">💡 <strong>Sugerencia:</strong> Espera unos minutos y vuelve a escanear el código QR.</p>
+                        <p style="margin-top: 20px;">💡 <strong>Sugerencia:</strong> Verifica que el archivo ${id}.json existe en GitHub y espera unos minutos para que se sincronice.</p>
                     </div>
                 `;
             }
@@ -582,8 +585,9 @@
                     <p style="margin-top: 25px;"><strong>Acceso manual (opcional):</strong></p>
                     <p>También puedes acceder directamente usando el siguiente formato de URL:</p>
                     <div class="code-block">
-                        https://sbaussa.github.io/facturas-baussa/facturas?venta=TU_NUMERO_DE_FACTURA
+                        https://sbaussa.github.io/facturas-baussa/facturas?venta=106
                     </div>
+                    <p style="margin-top: 15px; font-size: 14px;">Donde "106" es el número de tu factura.</p>
                 </div>
                 
                 <div class="error">
