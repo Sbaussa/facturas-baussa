@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturas - Tienda de Baussa</title>
+    <title>Facturas - Baus S.A.S</title>
+    <link rel="icon" type="image/x-icon" href="./iconoweb.ico">
+    <link rel="apple-touch-icon" href="./iconoweb.ico">
     <style>
         * {
             margin: 0;
@@ -38,10 +40,18 @@
         }
         
         .logo {
-            font-size: 64px;
-            margin-bottom: 15px;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
             display: inline-block;
             animation: float 3s ease-in-out infinite;
+            object-fit: contain;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         @keyframes float {
@@ -379,8 +389,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">🏪</div>
-            <h1>Tienda de Baussa</h1>
+            <div class="logo">
+                <img src="./iconoweb.ico" alt="Baus S.A.S Logo" onerror="this.style.display='none'">
+            </div>
+            <h1>Tiendas Baus S.A.S</h1>
             <p class="subtitle">Sistema profesional de consulta de facturas electrónicas</p>
         </div>
         
@@ -392,8 +404,8 @@
         </div>
         
         <footer>
-            <p>© 2025 Tienda de Baussa - Todos los derechos reservados</p>
-            <p style="margin-top: 5px; font-size: 12px;">Sistema de facturación electrónica seguro</p>
+            <p>© 2026 Baus S.A.S - Todos los derechos reservados</p>
+            <p style="margin-top: 5px; font-size: 12px;">Sistema de facturación electrónica (En preceso...)!!</p>
         </footer>
     </div>
     
@@ -492,7 +504,7 @@
                     
                     <div class="pdf-container">
                         <div class="factura-header">
-                            <h2>TIENDA DE BAUSSA</h2>
+                            <h2>BAUS S.A.S</h2>
                             <p>NIT: 123456789-12</p>
                             <p>Cra 123 #12-34, Barranquilla</p>
                             <p>Tel: 300 9626009</p>
