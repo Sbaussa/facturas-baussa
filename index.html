@@ -417,17 +417,64 @@
             });
         }
         
-        async function cargarFacturaReal(id) {
+        async function cargarFacturaReal(id, intentoActual = 1, maxIntentos = 6) {
             try {
                 // Como index.html está en la raíz, los archivos JSON están en ./facturas/
                 const jsonUrl = `./facturas/${id}.json`;
                 
-                console.log('Intentando cargar desde:', jsonUrl);
+                console.log(`Intento ${intentoActual}/${maxIntentos}: Cargando desde ${jsonUrl}`);
                 
-                const response = await fetch(jsonUrl);
+                // Mostrar estado de carga con intento actual
+                if (intentoActual > 1) {
+                    contentDiv.innerHTML = `
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p class="loading-text">Esperando que el servidor sincronice los datos...</p>
+                            <p style="text-align: center; color: #666; margin-top: 15px; font-size: 14px;">
+                                Intento ${intentoActual} de ${maxIntentos}
+                            </p>
+                            <div style="text-align: center; margin-top: 20px;">
+                                <div style="background: #f0f0f0; height: 8px; border-radius: 10px; max-width: 300px; margin: 0 auto; overflow: hidden;">
+                                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: ${(intentoActual / maxIntentos) * 100}%; transition: width 0.3s ease;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                const response = await fetch(jsonUrl, {
+                    cache: 'no-store' // Evitar caché del navegador
+                });
                 
                 if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: Factura no encontrada`);
+                    // Si no es el último intento, esperar y reintentar
+                    if (intentoActual < maxIntentos) {
+                        const esperaSegundos = 10; // 10 segundos entre intentos
+                        console.log(`⏳ Archivo no encontrado. Reintentando en ${esperaSegundos} segundos...`);
+                        
+                        contentDiv.innerHTML = `
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                <p class="loading-text">La factura está siendo procesada...</p>
+                                <p style="text-align: center; color: #666; margin-top: 15px; font-size: 14px;">
+                                    Intento ${intentoActual} de ${maxIntentos}
+                                </p>
+                                <p style="text-align: center; color: #999; margin-top: 10px; font-size: 13px;">
+                                    Siguiente intento en ${esperaSegundos} segundos...
+                                </p>
+                                <div style="text-align: center; margin-top: 20px;">
+                                    <div style="background: #f0f0f0; height: 8px; border-radius: 10px; max-width: 300px; margin: 0 auto; overflow: hidden;">
+                                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: ${(intentoActual / maxIntentos) * 100}%; transition: width 0.3s ease;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        await new Promise(resolve => setTimeout(resolve, esperaSegundos * 1000));
+                        return cargarFacturaReal(id, intentoActual + 1, maxIntentos);
+                    }
+                    
+                    throw new Error(`HTTP ${response.status}: Factura no encontrada después de ${maxIntentos} intentos`);
                 }
                 
                 const data = await response.json();
@@ -516,25 +563,27 @@
                 
                 contentDiv.innerHTML = `
                     <div class="error">
-                        <h3>❌ Error al Cargar Factura</h3>
-                        <p>No se pudo cargar la factura #${id}</p>
+                        <h3>❌ No se pudo cargar la factura</h3>
+                        <p>No se pudo cargar la factura #${id} después de varios intentos.</p>
                         <p><strong>Motivo:</strong> ${error.message}</p>
-                        
-                        <div class="debug-info">
-                            <strong>🔍 Información de Debug:</strong><br>
-                            URL intentada: ./facturas/${id}.json<br>
-                            URL completa: ${window.location.origin}/facturas-baussa/facturas/${id}.json<br>
-                            Ubicación actual: ${window.location.href}
-                        </div>
                         
                         <p style="margin-top: 20px;">Posibles causas:</p>
                         <ul style="margin-left: 20px; margin-top: 10px; list-style: inside;">
-                            <li>La factura #${id} aún no ha sido subida a GitHub</li>
+                            <li>La factura #${id} no ha sido generada aún</li>
                             <li>El archivo ${id}.json no existe en la carpeta "facturas/"</li>
                             <li>El número de factura es incorrecto</li>
-                            <li>GitHub Pages aún está procesando los cambios (espera 1-2 minutos)</li>
+                            <li>Problemas con GitHub Pages (puede tardar hasta 5 minutos en actualizar)</li>
                         </ul>
-                        <p style="margin-top: 20px;">💡 <strong>Sugerencia:</strong> Verifica que el archivo ${id}.json existe en GitHub dentro de la carpeta "facturas/".</p>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <button onclick="location.reload()" class="btn btn-primary" style="display: inline-flex;">
+                                🔄 Reintentar Ahora
+                            </button>
+                        </div>
+                        
+                        <p style="margin-top: 20px; text-align: center; font-size: 14px;">
+                            💡 <strong>Sugerencia:</strong> Si acabas de generar la factura, espera 1-2 minutos y presiona "Reintentar".
+                        </p>
                     </div>
                 `;
             }
