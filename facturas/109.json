@@ -1,0 +1,19 @@
+{
+  "id": 109,
+  "fecha": "2025-12-09 22:37:23",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 2,
+      "nombre": "PAN BIMBO",
+      "subtotal": 15200.0
+    }
+  ],
+  "total": 15200.0,
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
