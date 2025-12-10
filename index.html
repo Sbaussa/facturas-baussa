@@ -419,10 +419,25 @@
         
         async function cargarFacturaReal(id) {
             try {
-                // Construir la URL completa para GitHub Pages
-                const baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '').replace(/\/$/, '');
-                const jsonUrl = `${baseUrl}/${id}.json`;
+                // Obtener el directorio actual (donde está el index.html)
+                let currentPath = window.location.pathname;
                 
+                // Si termina en index.html, quitarlo
+                if (currentPath.endsWith('index.html')) {
+                    currentPath = currentPath.replace('index.html', '');
+                }
+                
+                // Asegurarnos de que termina en /
+                if (!currentPath.endsWith('/')) {
+                    currentPath += '/';
+                }
+                
+                // Construir la URL completa
+                const baseUrl = window.location.origin + currentPath;
+                const jsonUrl = `${baseUrl}${id}.json`;
+                
+                console.log('Path actual:', window.location.pathname);
+                console.log('Base URL:', baseUrl);
                 console.log('Intentando cargar desde:', jsonUrl);
                 
                 const response = await fetch(jsonUrl);
@@ -490,7 +505,7 @@
                         </div>
                         
                         <div class="factura-qr">
-                            <img src="${baseUrl}/${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
+                            <img src="${baseUrl}${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
                             <p>Escanea el código QR para compartir esta factura</p>
                             <p style="font-size: 10px; margin-top: 5px;">
                                 ${window.location.href}
@@ -499,7 +514,7 @@
                     </div>
                     
                     <div class="actions">
-                        <a href="${baseUrl}/${id}.pdf" 
+                        <a href="${baseUrl}${id}.pdf" 
                            download="Factura_${id}.pdf" 
                            class="btn btn-primary">
                             📥 Descargar PDF
@@ -515,8 +530,16 @@
             } catch (error) {
                 console.error('Error cargando factura:', error);
                 
-                const baseUrl = window.location.origin + window.location.pathname.replace('/index.html', '').replace(/\/$/, '');
-                const jsonUrl = `${baseUrl}/${id}.json`;
+                // Reconstruir la URL para mostrarla en el debug
+                let currentPath = window.location.pathname;
+                if (currentPath.endsWith('index.html')) {
+                    currentPath = currentPath.replace('index.html', '');
+                }
+                if (!currentPath.endsWith('/')) {
+                    currentPath += '/';
+                }
+                const baseUrl = window.location.origin + currentPath;
+                const jsonUrl = `${baseUrl}${id}.json`;
                 
                 contentDiv.innerHTML = `
                     <div class="error">
