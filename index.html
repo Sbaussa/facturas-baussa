@@ -419,48 +419,21 @@
         
         async function cargarFacturaReal(id) {
             try {
-                // Construir URLs para probar múltiples ubicaciones posibles
-                const urls = [
-                    // Opción 1: Mismo directorio que index.html (facturas/)
-                    `./${id}.json`,
-                    // Opción 2: Ruta completa desde la raíz
-                    `https://sbaussa.github.io/facturas-baussa/facturas/${id}.json`,
-                    // Opción 3: Relativa a la raíz del repo
-                    `/facturas-baussa/facturas/${id}.json`
-                ];
+                // Como index.html está en la raíz, los archivos JSON están en ./facturas/
+                const jsonUrl = `./facturas/${id}.json`;
                 
-                let data = null;
-                let urlExitosa = null;
+                console.log('Intentando cargar desde:', jsonUrl);
                 
-                // Intentar cada URL hasta que una funcione
-                for (const url of urls) {
-                    try {
-                        console.log(`Intentando cargar desde: ${url}`);
-                        const response = await fetch(url);
-                        
-                        if (response.ok) {
-                            data = await response.json();
-                            urlExitosa = url;
-                            console.log(`✅ Éxito con URL: ${url}`);
-                            break;
-                        } else {
-                            console.log(`❌ Falló (${response.status}): ${url}`);
-                        }
-                    } catch (err) {
-                        console.log(`❌ Error con: ${url}`, err.message);
-                    }
+                const response = await fetch(jsonUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: Factura no encontrada`);
                 }
                 
-                if (!data) {
-                    throw new Error('No se pudo cargar el archivo JSON desde ninguna ubicación');
-                }
+                const data = await response.json();
+                console.log('✅ Factura cargada exitosamente:', data);
                 
-                console.log('Datos cargados exitosamente:', data);
-                
-                // Determinar la URL base para otros recursos (PDF, QR)
-                const baseUrl = urlExitosa.replace(`${id}.json`, '');
-                
-                // MOSTRAR DATOS REALES DEL JSON
+                // MOSTRAR FACTURA EN FORMATO TEXTO
                 const facturaHTML = `
                     <div class="invoice-info">
                         <h2>✅ Factura Localizada</h2>
@@ -516,7 +489,7 @@
                         </div>
                         
                         <div class="factura-qr">
-                            <img src="${baseUrl}${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
+                            <img src="./facturas/${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
                             <p>Escanea el código QR para compartir esta factura</p>
                             <p style="font-size: 10px; margin-top: 5px;">
                                 ${window.location.href}
@@ -525,7 +498,7 @@
                     </div>
                     
                     <div class="actions">
-                        <a href="${baseUrl}${id}.pdf" 
+                        <a href="./facturas/${id}.pdf" 
                            download="Factura_${id}.pdf" 
                            class="btn btn-primary">
                             📥 Descargar PDF
@@ -539,7 +512,7 @@
                 contentDiv.innerHTML = facturaHTML;
                 
             } catch (error) {
-                console.error('Error cargando factura:', error);
+                console.error('❌ Error cargando factura:', error);
                 
                 contentDiv.innerHTML = `
                     <div class="error">
@@ -549,22 +522,19 @@
                         
                         <div class="debug-info">
                             <strong>🔍 Información de Debug:</strong><br>
-                            URLs intentadas:<br>
-                            1. ./${id}.json<br>
-                            2. https://sbaussa.github.io/facturas-baussa/facturas/${id}.json<br>
-                            3. /facturas-baussa/facturas/${id}.json<br><br>
-                            Ubicación actual: ${window.location.href}<br>
-                            Pathname: ${window.location.pathname}
+                            URL intentada: ./facturas/${id}.json<br>
+                            URL completa: ${window.location.origin}/facturas-baussa/facturas/${id}.json<br>
+                            Ubicación actual: ${window.location.href}
                         </div>
                         
                         <p style="margin-top: 20px;">Posibles causas:</p>
                         <ul style="margin-left: 20px; margin-top: 10px; list-style: inside;">
-                            <li>La factura #${id} aún no ha sido sincronizada con GitHub</li>
+                            <li>La factura #${id} aún no ha sido subida a GitHub</li>
+                            <li>El archivo ${id}.json no existe en la carpeta "facturas/"</li>
                             <li>El número de factura es incorrecto</li>
-                            <li>El archivo ${id}.json no existe en el repositorio</li>
-                            <li>Problemas de conectividad</li>
+                            <li>GitHub Pages aún está procesando los cambios (espera 1-2 minutos)</li>
                         </ul>
-                        <p style="margin-top: 20px;">💡 <strong>Sugerencia:</strong> Verifica que el archivo ${id}.json existe en GitHub y espera unos minutos para que se sincronice.</p>
+                        <p style="margin-top: 20px;">💡 <strong>Sugerencia:</strong> Verifica que el archivo ${id}.json existe en GitHub dentro de la carpeta "facturas/".</p>
                     </div>
                 `;
             }
@@ -585,7 +555,7 @@
                     <p style="margin-top: 25px;"><strong>Acceso manual (opcional):</strong></p>
                     <p>También puedes acceder directamente usando el siguiente formato de URL:</p>
                     <div class="code-block">
-                        https://sbaussa.github.io/facturas-baussa/facturas?venta=106
+                        https://sbaussa.github.io/facturas-baussa/?venta=106
                     </div>
                     <p style="margin-top: 15px; font-size: 14px;">Donde "106" es el número de tu factura.</p>
                 </div>
