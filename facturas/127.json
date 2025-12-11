@@ -1,0 +1,24 @@
+{
+  "id": 127,
+  "fecha": "2025-12-10 23:59:35",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "CERDO XLB",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ ROA",
+      "subtotal": 3400.0
+    }
+  ],
+  "total": 10400.0,
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
