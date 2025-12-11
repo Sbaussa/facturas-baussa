@@ -1,0 +1,24 @@
+{
+  "id": 126,
+  "fecha": "2025-12-10 23:44:49",
+  "forma_pago": "Transferencia",
+  "items": [
+    {
+      "cantidad": 3,
+      "nombre": "SIX PACK CORONITA",
+      "subtotal": 60000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "AGUARDIENTE CAJA 1L",
+      "subtotal": 50000.0
+    }
+  ],
+  "total": 110000.0,
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
