@@ -1,0 +1,124 @@
+{
+  "id": 133,
+  "fecha": "2025-12-11 22:07:42",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 10000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "AGUARDIENTE CAJA 1L",
+      "subtotal": 50000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ DIANA",
+      "subtotal": 2900.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ ROA",
+      "subtotal": 3400.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CERDO XLB",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "HUEVOS XUNIDAD",
+      "subtotal": 800.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "LENTEJA SOBERANA",
+      "subtotal": 2900.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "LENTEJA LEOPARDO",
+      "subtotal": 2600.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "LECHE ALQUERIA",
+      "subtotal": 3400.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "POWERADE ROJO",
+      "subtotal": 5000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "POWERADE AZUL",
+      "subtotal": 6000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "PAN BIMBO",
+      "subtotal": 7600.0
+    },
+    {
+      "cantidad": 2,
+      "nombre": "SPEED MAX 1L",
+      "subtotal": 12000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "SPEED MAX",
+      "subtotal": 2400.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "SIX PACK CORONITA",
+      "subtotal": 20000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "SUNTEA MANZANA VERDE",
+      "subtotal": 1700.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "SUNTEA FRUTOS ROJOS",
+      "subtotal": 1700.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "SUNTEA DURAZNO",
+      "subtotal": 1700.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "YOGURT CAJITA",
+      "subtotal": 3000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "VIVE 100 1L",
+      "subtotal": 5000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "VIVE 100",
+      "subtotal": 2500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ZARAGOZA LEOPARDO",
+      "subtotal": 2500.0
+    }
+  ],
+  "total": 154100.0,
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
