@@ -1,0 +1,36 @@
+{
+  "id": 157,
+  "fecha": "2025-12-12 22:51:58",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "AGUA",
+      "subtotal": 2000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "AGUARDIENTE CAJA 1L",
+      "subtotal": 50000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CERDO XLB",
+      "subtotal": 7000.0
+    }
+  ],
+  "total": 59000.0,
+  "cliente": {
+    "nombre": "MAYLI",
+    "telefono": "3009234932",
+    "email": "",
+    "direccion": "CRA54 #43-54",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
