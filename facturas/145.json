@@ -1,0 +1,31 @@
+{
+  "id": 145,
+  "fecha": "2025-12-12 21:12:59",
+  "forma_pago": "Transferencia",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "AGUA",
+      "subtotal": 2000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 10000.0
+    }
+  ],
+  "total": 12000.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "telefono": "",
+    "email": "",
+    "direccion": "",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
