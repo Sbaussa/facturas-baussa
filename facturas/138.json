@@ -1,0 +1,36 @@
+{
+  "id": 138,
+  "fecha": "2025-12-12 20:44:00",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ DIANA",
+      "subtotal": 2900.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CERDO XLB",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "HUEVOS XUNIDAD",
+      "subtotal": 800.0
+    }
+  ],
+  "total": 10700.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "telefono": "",
+    "email": "",
+    "direccion": "",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
