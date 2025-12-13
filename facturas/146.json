@@ -1,0 +1,36 @@
+{
+  "id": 146,
+  "fecha": "2025-12-12 21:33:01",
+  "forma_pago": "Mixto",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ ROA",
+      "subtotal": 3400.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CERDO XLB",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ DIANA",
+      "subtotal": 2900.0
+    }
+  ],
+  "total": 13300.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "telefono": "",
+    "email": "",
+    "direccion": "",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
