@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Facturas - Baus S.A.S </title>
+    <title>📄 Facturas - Baus S.A.S</title>
     <link rel="icon" type="image/x-icon" href="./iconoweb.ico">
-    <link rel="apple-touch-icon" href="./iconoweb.ico">
     <style>
         * {
             margin: 0;
@@ -28,7 +27,6 @@
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
         }
         
         .header {
@@ -36,7 +34,6 @@
             margin-bottom: 40px;
             padding-bottom: 30px;
             border-bottom: 3px solid #f0f0f0;
-            position: relative;
         }
         
         .logo {
@@ -45,13 +42,6 @@
             margin-bottom: 20px;
             display: inline-block;
             animation: float 3s ease-in-out infinite;
-            object-fit: contain;
-        }
-        
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
         }
         
         @keyframes float {
@@ -64,13 +54,6 @@
             font-size: 42px;
             font-weight: 700;
             margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-        
-        .subtitle {
-            color: #666;
-            font-size: 16px;
-            font-weight: 400;
         }
         
         .invoice-info {
@@ -82,37 +65,13 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
         }
         
-        .invoice-info h2 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .invoice-info p {
-            opacity: 0.95;
-            line-height: 1.8;
-            font-size: 15px;
-        }
-        
-        .invoice-number {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 10px;
-            font-weight: 600;
-            font-size: 18px;
-        }
-        
         .pdf-container {
             background: white;
             padding: 40px;
             border-radius: 15px;
             margin-top: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -121,41 +80,63 @@
             text-align: center;
             border-bottom: 2px solid #333;
             padding-bottom: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .factura-header h2 {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: #1a1a1a;
-        }
-        
-        .factura-header p {
-            font-size: 12px;
-            color: #666;
-            margin: 3px 0;
         }
         
         .factura-info {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
         
-        .factura-info-item {
+        .info-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-section h3 {
+            font-size: 13px;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .info-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 8px 0;
+            margin-bottom: 8px;
+            font-size: 13px;
         }
         
-        .factura-info-item strong {
+        .info-item strong {
+            color: #555;
+        }
+        
+        .info-item span {
             color: #333;
-            font-size: 14px;
+            font-weight: 500;
         }
         
-        .factura-info-item span {
-            color: #666;
-            font-size: 14px;
+        .cliente-badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 5px;
         }
         
         .factura-items {
@@ -171,7 +152,6 @@
             margin-bottom: 15px;
             font-weight: 700;
             font-size: 12px;
-            color: #1a1a1a;
         }
         
         .item-row {
@@ -181,11 +161,6 @@
             padding: 12px 0;
             border-bottom: 1px solid #e0e0e0;
             font-size: 13px;
-            color: #333;
-        }
-        
-        .item-row:last-child {
-            border-bottom: none;
         }
         
         .factura-total {
@@ -199,25 +174,6 @@
             justify-content: space-between;
             font-size: 18px;
             font-weight: 700;
-            color: #1a1a1a;
-        }
-        
-        .factura-qr {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #f0f0f0;
-        }
-        
-        .factura-qr img {
-            max-width: 150px;
-            border-radius: 8px;
-        }
-        
-        .factura-qr p {
-            font-size: 11px;
-            color: #999;
-            margin-top: 10px;
         }
         
         .actions {
@@ -253,18 +209,6 @@
             box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
         }
         
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-        
-        .btn-secondary:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-3px);
-        }
-        
         .loading {
             text-align: center;
             padding: 80px 20px;
@@ -285,103 +229,17 @@
             100% { transform: rotate(360deg); }
         }
         
-        .loading-text {
-            font-size: 18px;
-            color: #666;
-            font-weight: 500;
-        }
-        
-        .error {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
-        }
-        
-        .error h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .error p {
-            opacity: 0.95;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-        
-        .debug-info {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-family: monospace;
-            font-size: 12px;
-            word-break: break-all;
-        }
-        
-        .info-box {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
-        
-        .info-box h2 {
-            color: #1a1a1a;
-            font-size: 24px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .info-box p {
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-        
-        .code-block {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            margin-top: 15px;
-            word-break: break-all;
-            color: #1a1a1a;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #f0f0f0;
-            color: #999;
-            font-size: 14px;
-        }
-        
-        @media (max-width: 768px) {
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
             .container {
-                padding: 25px;
+                box-shadow: none;
+                padding: 20px;
             }
-            
-            h1 {
-                font-size: 32px;
-            }
-            
-            .actions {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
+            .actions, .btn {
+                display: none !important;
             }
         }
     </style>
@@ -390,23 +248,18 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-                <img src="./iconoweb.ico" alt="Baus S.A.S Logo" onerror="this.style.display='none'">
+                <img src="./iconoweb.ico" alt="Logo" style="width: 100%; height: 100%;" onerror="this.style.display='none'">
             </div>
             <h1>Tiendas Baus S.A.S</h1>
-            <p class="subtitle">Sistema profesional de consulta de facturas electrónicas</p>
+            <p style="color: #666; font-size: 16px;">Sistema de Facturación Electrónica</p>
         </div>
         
         <div id="content">
             <div class="loading">
                 <div class="spinner"></div>
-                <p class="loading-text">Cargando tu factura...</p>
+                <p style="font-size: 18px; color: #666;">Cargando factura...</p>
             </div>
         </div>
-        
-        <footer>
-            <p>© 2026 Baus S.A.S - Todos los derechos reservados</p>
-            <p style="margin-top: 5px; font-size: 12px;">Sistema de facturación electrónica (En preceso...)!!</p>
-        </footer>
     </div>
     
     <script>
@@ -431,73 +284,75 @@
         
         async function cargarFacturaReal(id, intentoActual = 1, maxIntentos = 6) {
             try {
-                // Como index.html está en la raíz, los archivos JSON están en ./facturas/
                 const jsonUrl = `./facturas/${id}.json`;
+                console.log(`Intento ${intentoActual}/${maxIntentos}: ${jsonUrl}`);
                 
-                console.log(`Intento ${intentoActual}/${maxIntentos}: Cargando desde ${jsonUrl}`);
-                
-                // Mostrar estado de carga con intento actual
-                if (intentoActual > 1) {
-                    contentDiv.innerHTML = `
-                        <div class="loading">
-                            <div class="spinner"></div>
-                            <p class="loading-text">Esperando que el servidor sincronice los datos...</p>
-                            <p style="text-align: center; color: #666; margin-top: 15px; font-size: 14px;">
-                                Intento ${intentoActual} de ${maxIntentos}
-                            </p>
-                            <div style="text-align: center; margin-top: 20px;">
-                                <div style="background: #f0f0f0; height: 8px; border-radius: 10px; max-width: 300px; margin: 0 auto; overflow: hidden;">
-                                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: ${(intentoActual / maxIntentos) * 100}%; transition: width 0.3s ease;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }
-                
-                const response = await fetch(jsonUrl, {
-                    cache: 'no-store' // Evitar caché del navegador
-                });
+                const response = await fetch(jsonUrl, { cache: 'no-store' });
                 
                 if (!response.ok) {
-                    // Si no es el último intento, esperar y reintentar
                     if (intentoActual < maxIntentos) {
-                        const esperaSegundos = 10; // 10 segundos entre intentos
-                        console.log(`⏳ Archivo no encontrado. Reintentando en ${esperaSegundos} segundos...`);
-                        
-                        contentDiv.innerHTML = `
-                            <div class="loading">
-                                <div class="spinner"></div>
-                                <p class="loading-text">La factura está siendo procesada...</p>
-                                <p style="text-align: center; color: #666; margin-top: 15px; font-size: 14px;">
-                                    Intento ${intentoActual} de ${maxIntentos}
-                                </p>
-                                <p style="text-align: center; color: #999; margin-top: 10px; font-size: 13px;">
-                                    Siguiente intento en ${esperaSegundos} segundos...
-                                </p>
-                                <div style="text-align: center; margin-top: 20px;">
-                                    <div style="background: #f0f0f0; height: 8px; border-radius: 10px; max-width: 300px; margin: 0 auto; overflow: hidden;">
-                                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: ${(intentoActual / maxIntentos) * 100}%; transition: width 0.3s ease;"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        
-                        await new Promise(resolve => setTimeout(resolve, esperaSegundos * 1000));
+                        await new Promise(resolve => setTimeout(resolve, 10000));
                         return cargarFacturaReal(id, intentoActual + 1, maxIntentos);
                     }
-                    
-                    throw new Error(`HTTP ${response.status}: Factura no encontrada después de ${maxIntentos} intentos`);
+                    throw new Error(`Factura no encontrada después de ${maxIntentos} intentos`);
                 }
                 
                 const data = await response.json();
-                console.log('✅ Factura cargada exitosamente:', data);
+                console.log('✅ Factura cargada:', data);
                 
-                // MOSTRAR FACTURA EN FORMATO TEXTO
+                // Información del cliente
+                let clienteHTML = '';
+                if (data.cliente) {
+                    const esContado = data.cliente.nombre === 'CONTADO';
+                    
+                    clienteHTML = `
+                        <div class="info-section">
+                            <h3>👤 Cliente</h3>
+                            <div class="info-item">
+                                <strong>Nombre:</strong>
+                                <span>${data.cliente.nombre}</span>
+                            </div>
+                    `;
+                    
+                    if (!esContado) {
+                        if (data.cliente.telefono) {
+                            clienteHTML += `
+                                <div class="info-item">
+                                    <strong>Teléfono:</strong>
+                                    <span>${data.cliente.telefono}</span>
+                                </div>
+                            `;
+                        }
+                        if (data.cliente.email) {
+                            clienteHTML += `
+                                <div class="info-item">
+                                    <strong>Email:</strong>
+                                    <span>${data.cliente.email}</span>
+                                </div>
+                            `;
+                        }
+                        if (data.cliente.direccion) {
+                            clienteHTML += `
+                                <div class="info-item">
+                                    <strong>Dirección:</strong>
+                                    <span>${data.cliente.direccion}</span>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        clienteHTML += `
+                            <div class="cliente-badge">💵 VENTA AL CONTADO</div>
+                        `;
+                    }
+                    
+                    clienteHTML += `</div>`;
+                }
+                
                 const facturaHTML = `
                     <div class="invoice-info">
-                        <h2>✅ Factura Localizada</h2>
-                        <p>Tu factura ha sido encontrada exitosamente en nuestro sistema.</p>
-                        <div class="invoice-number">
+                        <h2 style="font-size: 22px; margin-bottom: 15px;">✅ Factura Localizada</h2>
+                        <p style="opacity: 0.95;">Tu factura ha sido encontrada exitosamente.</p>
+                        <div style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 8px; display: inline-block; margin-top: 10px; font-weight: 600; font-size: 18px;">
                             Factura #${data.id}
                         </div>
                     </div>
@@ -505,24 +360,29 @@
                     <div class="pdf-container">
                         <div class="factura-header">
                             <h2>BAUS S.A.S</h2>
-                            <p>NIT: 123456789-12</p>
-                            <p>Cra 123 #12-34 Barranquilla/Atlántico </p>
-                            <p>Tel: 300 9626009</p>
+                            <p style="font-size: 12px; color: #666; margin: 3px 0;">NIT: 123456789-12</p>
+                            <p style="font-size: 12px; color: #666; margin: 3px 0;">Cra 123 #12-34, Barranquilla/Atlántico</p>
+                            <p style="font-size: 12px; color: #666; margin: 3px 0;">Tel: 300 9626009</p>
                         </div>
                         
                         <div class="factura-info">
-                            <div class="factura-info-item">
-                                <strong>Factura:</strong>
-                                <span>#${data.id}</span>
+                            <div class="info-section">
+                                <h3>📄 Datos de la Factura</h3>
+                                <div class="info-item">
+                                    <strong>N° Factura:</strong>
+                                    <span>#${data.id}</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Fecha:</strong>
+                                    <span>${formatearFecha(data.fecha)}</span>
+                                </div>
+                                <div class="info-item">
+                                    <strong>Forma de Pago:</strong>
+                                    <span>${data.forma_pago}</span>
+                                </div>
                             </div>
-                            <div class="factura-info-item">
-                                <strong>Fecha:</strong>
-                                <span>${formatearFecha(data.fecha)}</span>
-                            </div>
-                            <div class="factura-info-item">
-                                <strong>Forma de Pago:</strong>
-                                <span>${data.forma_pago}</span>
-                            </div>
+                            
+                            ${clienteHTML}
                         </div>
                         
                         <div class="factura-items">
@@ -547,22 +407,18 @@
                             </div>
                         </div>
                         
-                        <div class="factura-qr">
-                            <img src="./facturas/${id}_qr.png" alt="Código QR" onerror="this.style.display='none'">
-                            <p style="font-size: 10px; margin-top: 5px;">
-                                ${window.location.href}
-                            </p>
+                        <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #f0f0f0;">
+                            <img src="./facturas/${id}_qr.png" alt="Código QR" style="max-width: 150px; border-radius: 8px;" onerror="this.style.display='none'">
+                            <p style="font-size: 11px; color: #999; margin-top: 10px;">${window.location.href}</p>
                         </div>
                     </div>
                     
                     <div class="actions">
-                        <a href="./facturas/${id}.pdf" 
-                           download="Factura_${id}.pdf" 
-                           class="btn btn-primary">
+                        <a href="./facturas/${id}.pdf" download="Factura_${id}.pdf" class="btn btn-primary">
                             📥 Descargar PDF
                         </a>
-                        <button onclick="window.print()" class="btn btn-secondary">
-                            🖨️ Imprimir PDF
+                        <button onclick="window.print()" class="btn btn-primary">
+                            🖨️ Imprimir
                         </button>
                     </div>
                 `;
@@ -570,60 +426,28 @@
                 contentDiv.innerHTML = facturaHTML;
                 
             } catch (error) {
-                console.error('❌ Error cargando factura:', error);
-                
+                console.error('❌ Error:', error);
                 contentDiv.innerHTML = `
-                    <div class="error">
-                        <h3>❌ No se pudo cargar la factura</h3>
-                        <p>No se pudo cargar la factura #${id} después de varios intentos.</p>
-                        <p><strong>Motivo:</strong> ${error.message}</p>
-                        
-                        <p style="margin-top: 20px;">Posibles causas:</p>
-                        <ul style="margin-left: 20px; margin-top: 10px; list-style: inside;">
-                            <li>La factura #${id} no ha sido generada aún</li>
-                            <li>El archivo ${id}.json no existe en la carpeta "facturas/"</li>
-                            <li>El número de factura es incorrecto</li>
-                            <li>Problemas con GitHub Pages (puede tardar hasta 5 minutos en actualizar)</li>
-                        </ul>
-                        
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);">
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">❌ No se pudo cargar la factura</h3>
+                        <p style="opacity: 0.95; line-height: 1.8;">No se encontró la factura #${id}</p>
                         <div style="margin-top: 30px; text-align: center;">
                             <button onclick="location.reload()" class="btn btn-primary" style="display: inline-flex;">
-                                🔄 Reintentar Ahora
+                                🔄 Reintentar
                             </button>
                         </div>
-                        
-                        <p style="margin-top: 20px; text-align: center; font-size: 14px;">
-                            💡 <strong>Sugerencia:</strong> Si acabas de generar la factura, espera 1-2 minutos y presiona "Reintentar".
-                        </p>
                     </div>
                 `;
             }
         }
         
-        // LÓGICA PRINCIPAL
         if (ventaId) {
             cargarFacturaReal(ventaId);
         } else {
             contentDiv.innerHTML = `
-                <div class="info-box">
-                    <h2>📋 Instrucciones de Uso</h2>
-                    <p><strong>Para consultar tu factura sigue estos pasos:</strong></p>
-                    <p>1. Localiza el código QR en tu ticket de compra</p>
-                    <p>2. Escanéalo con la cámara de tu teléfono móvil</p>
-                    <p>3. Serás dirigido automáticamente a tu factura</p>
-                    
-                    <p style="margin-top: 25px;"><strong>Acceso manual (opcional):</strong></p>
-                    <p>También puedes acceder directamente usando el siguiente formato de URL:</p>
-                    <div class="code-block">
-                        https://sbaussa.github.io/facturas-baussa/?venta=106
-                    </div>
-                    <p style="margin-top: 15px; font-size: 14px;">Donde "106" es el número de tu factura.</p>
-                </div>
-                
-                <div class="error">
-                    <h3>⚠️ Parámetro Requerido</h3>
-                    <p>No se ha especificado un número de factura en la URL.</p>
-                    <p>Por favor, escanea el código QR de tu ticket de compra para acceder a tu factura.</p>
+                <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 30px; border-radius: 15px;">
+                    <h2 style="color: #1a1a1a; font-size: 24px; margin-bottom: 20px;">📋 Instrucciones</h2>
+                    <p style="color: #333; line-height: 1.8;">Para consultar tu factura, escanea el código QR en tu ticket de compra.</p>
                 </div>
             `;
         }
