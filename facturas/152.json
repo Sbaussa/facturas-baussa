@@ -1,0 +1,31 @@
+{
+  "id": 152,
+  "fecha": "2025-12-12 22:25:22",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA 1,5L",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA PERSONAL",
+      "subtotal": 2000.0
+    }
+  ],
+  "total": 9000.0,
+  "cliente": {
+    "nombre": "KAREN",
+    "telefono": "3002433009",
+    "email": "karenmendoza@gmail.com",
+    "direccion": "CRA40 #65-12",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
