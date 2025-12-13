@@ -1,0 +1,26 @@
+{
+  "id": 153,
+  "fecha": "2025-12-12 22:41:31",
+  "forma_pago": "Transferencia",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "GOMITAS GRISSLY CLASICAS",
+      "subtotal": 6000.0
+    }
+  ],
+  "total": 6000.0,
+  "cliente": {
+    "nombre": "ANGIE AYALA",
+    "telefono": "3146575952",
+    "email": "ilovedonyn@gmial.com",
+    "direccion": "EN MI CORAZÓN",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
