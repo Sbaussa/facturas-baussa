@@ -1,0 +1,31 @@
+{
+  "id": 159,
+  "fecha": "2025-12-12 22:54:59",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "AGUA",
+      "subtotal": 2000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 10000.0
+    }
+  ],
+  "total": 12000.0,
+  "cliente": {
+    "nombre": "STEVEN BAUSSA",
+    "telefono": "3009626009",
+    "email": "stevenbaussamz@gmail.com",
+    "direccion": "CRA60 #66 -135",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
