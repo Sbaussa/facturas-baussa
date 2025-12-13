@@ -1,0 +1,26 @@
+{
+  "id": 155,
+  "fecha": "2025-12-12 22:43:59",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 10000.0
+    }
+  ],
+  "total": 10000.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "telefono": "",
+    "email": "",
+    "direccion": "Venta sin registro de cliente",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
