@@ -1,0 +1,36 @@
+{
+  "id": 141,
+  "fecha": "2025-12-12 20:51:34",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA 1,5L",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "DE TODITO NATURAL",
+      "subtotal": 3500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CHOCORRAMO",
+      "subtotal": 3500.0
+    }
+  ],
+  "total": 14000.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "telefono": "",
+    "email": "",
+    "direccion": "",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
