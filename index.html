@@ -89,18 +89,13 @@
             margin-bottom: 10px;
         }
         
-        .factura-info {
-            margin-bottom: 25px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
+        /* Ahora info-section es independiente, sin grid */
         .info-section {
             background: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
             border-left: 4px solid #667eea;
+            margin-bottom: 20px;
         }
         
         .info-section h3 {
@@ -300,7 +295,7 @@
                 const data = await response.json();
                 console.log('✅ Factura cargada:', data);
                 
-                // Información del cliente
+                // Información del cliente (independiente, sin envolverse en grid)
                 let clienteHTML = '';
                 if (data.cliente) {
                     const esContado = data.cliente.nombre === 'CONTADO';
@@ -348,6 +343,7 @@
                     clienteHTML += `</div>`;
                 }
                 
+                // HTML completo de la factura
                 const facturaHTML = `
                     <div class="invoice-info">
                         <h2 style="font-size: 22px; margin-bottom: 15px;">✅ Factura Localizada</h2>
@@ -365,26 +361,27 @@
                             <p style="font-size: 12px; color: #666; margin: 3px 0;">Tel: 300 9626009</p>
                         </div>
                         
-                        <div class="factura-info">
-                            <div class="info-section">
-                                <h3>📄 Datos de la Factura</h3>
-                                <div class="info-item">
-                                    <strong>N° Factura:</strong>
-                                    <span>#${data.id}</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Fecha:</strong>
-                                    <span>${formatearFecha(data.fecha)}</span>
-                                </div>
-                                <div class="info-item">
-                                    <strong>Forma de Pago:</strong>
-                                    <span>${data.forma_pago}</span>
-                                </div>
+                        <!-- Datos de la Factura -->
+                        <div class="info-section">
+                            <h3>📄 Datos de la Factura</h3>
+                            <div class="info-item">
+                                <strong>N° Factura:</strong>
+                                <span>#${data.id}</span>
                             </div>
-                            
-                            ${clienteHTML}
+                            <div class="info-item">
+                                <strong>Fecha:</strong>
+                                <span>${formatearFecha(data.fecha)}</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Forma de Pago:</strong>
+                                <span>${data.forma_pago}</span>
+                            </div>
                         </div>
-                        
+
+                        <!-- Datos del Cliente (ahora debajo) -->
+                        ${clienteHTML}
+
+                        <!-- Ítems -->
                         <div class="factura-items">
                             <div class="items-header">
                                 <div>Cant.</div>
@@ -400,6 +397,7 @@
                             `).join('')}
                         </div>
                         
+                        <!-- Total -->
                         <div class="factura-total">
                             <div class="total-row">
                                 <span>TOTAL:</span>
@@ -407,6 +405,7 @@
                             </div>
                         </div>
                         
+                        <!-- Código QR y URL -->
                         <div style="text-align: center; margin-top: 40px; padding-top: 30px; border-top: 2px solid #f0f0f0;">
                             <img src="./facturas/${id}_qr.png" alt="Código QR" style="max-width: 150px; border-radius: 8px;" onerror="this.style.display='none'">
                             <p style="font-size: 11px; color: #999; margin-top: 10px;">${window.location.href}</p>
@@ -454,3 +453,4 @@
     </script>
 </body>
 </html>
+
