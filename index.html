@@ -89,7 +89,6 @@
             margin-bottom: 10px;
         }
         
-        /* Ahora info-section es independiente, sin grid */
         .info-section {
             background: #f8f9fa;
             padding: 15px;
@@ -132,6 +131,32 @@
             font-size: 11px;
             font-weight: bold;
             margin-top: 5px;
+        }
+        
+        /* ✅ ESTILOS PARA MÉTODO DE PAGO */
+        .payment-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .payment-efectivo {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .payment-transferencia {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .payment-mixto {
+            background: linear-gradient(90deg, #4caf50 50%, #2196f3 50%);
+            color: white;
         }
         
         .factura-items {
@@ -295,7 +320,7 @@
                 const data = await response.json();
                 console.log('✅ Factura cargada:', data);
                 
-                // Información del cliente (independiente, sin envolverse en grid)
+                // ✅ INFORMACIÓN DEL CLIENTE CON CC/NIT
                 let clienteHTML = '';
                 if (data.cliente) {
                     const esContado = data.cliente.nombre === 'CONTADO';
@@ -310,6 +335,16 @@
                     `;
                     
                     if (!esContado) {
+                        // ✅ MOSTRAR CC/NIT SI EXISTE
+                        if (data.cliente.identificacion) {
+                            clienteHTML += `
+                                <div class="info-item">
+                                    <strong>CC/NIT:</strong>
+                                    <span>${data.cliente.identificacion}</span>
+                                </div>
+                            `;
+                        }
+                        
                         if (data.cliente.telefono) {
                             clienteHTML += `
                                 <div class="info-item">
@@ -343,6 +378,105 @@
                     clienteHTML += `</div>`;
                 }
                 
+                // ✅ INFORMACIÓN DEL MÉTODO DE PAGO
+                let metodoPagoHTML = '';
+                if (data.metodo_pago) {
+                    const metodo = data.metodo_pago;
+                    const tipo = metodo.tipo ? metodo.tipo.toLowerCase() : 'efectivo';
+                    
+                    let badgeClass = 'payment-efectivo';
+                    let icono = '💵';
+                    let tipoTexto = 'Efectivo';
+                    
+                    if (tipo === 'transferencia') {
+                        badgeClass = 'payment-transferencia';
+                        icono = '🏦';
+                        tipoTexto = 'Transferencia';
+                    } else if (tipo === 'mixto') {
+                        badgeClass = 'payment-mixto';
+                        icono = '💳';
+                        tipoTexto = 'Mixto';
+                    }
+                    
+                    metodoPagoHTML = `
+                        <div class="info-section">
+                            <h3>💳 Método de Pago</h3>
+                            <div style="margin-bottom: 12px;">
+                                <span class="payment-badge ${badgeClass}">${icono} ${tipoTexto}</span>
+                            </div>
+                    `;
+                    
+                    // EFECTIVO
+                    if (tipo === 'efectivo') {
+                        if (metodo.monto_recibido > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>Recibido:</strong>
+                                    <span>${formatearPrecio(metodo.monto_recibido)}</span>
+                                </div>
+                            `;
+                        }
+                        if (metodo.cambio > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>Cambio:</strong>
+                                    <span style="color: #4caf50; font-weight: 700;">${formatearPrecio(metodo.cambio)}</span>
+                                </div>
+                            `;
+                        }
+                    }
+                    
+                    // TRANSFERENCIA
+                    else if (tipo === 'transferencia') {
+                        if (metodo.monto_transferencia > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>Monto:</strong>
+                                    <span>${formatearPrecio(metodo.monto_transferencia)}</span>
+                                </div>
+                            `;
+                        }
+                    }
+                    
+                    // MIXTO
+                    else if (tipo === 'mixto') {
+                        if (metodo.monto_efectivo > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>💵 Efectivo:</strong>
+                                    <span>${formatearPrecio(metodo.monto_efectivo)}</span>
+                                </div>
+                            `;
+                        }
+                        if (metodo.monto_transferencia > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>🏦 Transferencia:</strong>
+                                    <span>${formatearPrecio(metodo.monto_transferencia)}</span>
+                                </div>
+                            `;
+                        }
+                        if (metodo.monto_recibido > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>Efectivo Recibido:</strong>
+                                    <span>${formatearPrecio(metodo.monto_recibido)}</span>
+                                </div>
+                            `;
+                        }
+                        if (metodo.cambio > 0) {
+                            metodoPagoHTML += `
+                                <div class="info-item">
+                                    <strong>Cambio:</strong>
+                                    <span style="color: #4caf50; font-weight: 700;">${formatearPrecio(metodo.cambio)}</span>
+                                </div>
+                            `;
+                        }
+                    }
+                    
+                    metodoPagoHTML += `</div>`;
+                }
+                
                 // HTML completo de la factura
                 const facturaHTML = `
                     <div class="invoice-info">
@@ -372,14 +506,13 @@
                                 <strong>Fecha:</strong>
                                 <span>${formatearFecha(data.fecha)}</span>
                             </div>
-                            <div class="info-item">
-                                <strong>Forma de Pago:</strong>
-                                <span>${data.forma_pago}</span>
-                            </div>
                         </div>
 
-                        <!-- Datos del Cliente (ahora debajo) -->
+                        <!-- Datos del Cliente -->
                         ${clienteHTML}
+                        
+                        <!-- Método de Pago -->
+                        ${metodoPagoHTML}
 
                         <!-- Ítems -->
                         <div class="factura-items">
@@ -453,4 +586,3 @@
     </script>
 </body>
 </html>
-
