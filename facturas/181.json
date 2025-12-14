@@ -1,0 +1,36 @@
+{
+  "id": 181,
+  "fecha": "2025-12-14 11:21:27",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "DE TODITO NATURAL",
+      "subtotal": 3500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "DORITO",
+      "subtotal": 3000.0
+    },
+    {
+      "cantidad": 2,
+      "nombre": "COCA COLA PERSONAL",
+      "subtotal": 4000.0
+    }
+  ],
+  "total": 10500.0,
+  "cliente": {
+    "nombre": "STEVEN BAUSSA",
+    "telefono": "3009626009",
+    "email": "stevenbaussamz@gmail.com",
+    "direccion": "CRA 60 #66 -135",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
