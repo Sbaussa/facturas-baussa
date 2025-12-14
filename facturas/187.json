@@ -23,11 +23,11 @@
     "puntos": 0
   },
   "metodo_pago": {
-    "tipo": "mixto",
-    "monto_efectivo": 4000,
-    "monto_transferencia": 10000,
-    "monto_recibido": 10000,
-    "cambio": 6000
+    "tipo": "efectivo",
+    "monto_efectivo": 0,
+    "monto_transferencia": 0,
+    "monto_recibido": 0,
+    "cambio": 0
   },
   "empresa": {
     "nombre": "TIENDA - POS BAUSSA",
