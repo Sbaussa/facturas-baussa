@@ -1,0 +1,31 @@
+{
+  "id": 101,
+  "fecha": "2025-12-09 21:51:50",
+  "forma_pago": "Transferencia",
+  "items": [
+    {
+      "cantidad": 3,
+      "nombre": "CERDO XLB",
+      "subtotal": 21000.0
+    },
+    {
+      "cantidad": 3,
+      "nombre": "ARROZ ROA",
+      "subtotal": 10200.0
+    }
+  ],
+  "total": 31200.0,
+  "cliente": {
+    "nombre": "Contado",
+    "telefono": "",
+    "email": "",
+    "direccion": "",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
