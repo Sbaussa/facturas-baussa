@@ -1,0 +1,36 @@
+{
+  "id": 170,
+  "fecha": "2025-12-13 22:52:14",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA PERSONAL",
+      "subtotal": 2000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "DORITO",
+      "subtotal": 3000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "HUEVOS XUNIDAD",
+      "subtotal": 800.0
+    }
+  ],
+  "total": 5800.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "telefono": "",
+    "email": "",
+    "direccion": "Venta sin registro de cliente",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
