@@ -18,10 +18,10 @@
     "puntos": 0
   },
   "metodo_pago": {
-    "tipo": "mixto",
-    "monto_efectivo": 100000,
-    "monto_transferencia": 50000,
-    "monto_recibido": 100000,
+    "tipo": "efectivo",
+    "monto_efectivo": 0,
+    "monto_transferencia": 0,
+    "monto_recibido": 0,
     "cambio": 0
   },
   "empresa": {
