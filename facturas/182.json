@@ -1,0 +1,36 @@
+{
+  "id": 182,
+  "fecha": "2025-12-14 11:32:21",
+  "forma_pago": "Efectivo",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "YOGURT CAJITA",
+      "subtotal": 3000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "HUEVOS XUNIDAD",
+      "subtotal": 800.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "PAN BIMBO",
+      "subtotal": 7600.0
+    }
+  ],
+  "total": 11400.0,
+  "cliente": {
+    "nombre": "BAUS S.A.S",
+    "telefono": "3002243545",
+    "email": "baussascomp@gmail.com",
+    "direccion": "CRA 90 #110-54",
+    "puntos": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS SYSTEM",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
