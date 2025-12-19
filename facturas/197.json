@@ -1,0 +1,49 @@
+{
+  "id": 197,
+  "fecha": "2025-12-18 23:23:33",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA 1,5L",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CHOCORRAMO",
+      "subtotal": 3500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "DE TODITO NATURAL",
+      "subtotal": 3500.0
+    }
+  ],
+  "total": 14000.0,
+  "cliente": {
+    "nombre": "MAYLI CANTILLO",
+    "identificacion": "123456789",
+    "telefono": "3009234932",
+    "email": "maylicanti@hotmail.com",
+    "direccion": "CRA 54 #43-54",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "transferencia",
+    "monto_efectivo": 0,
+    "monto_transferencia": 14000,
+    "monto_recibido": 0,
+    "cambio": 0
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
