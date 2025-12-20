@@ -23,10 +23,10 @@
     "puntos": 0
   },
   "metodo_pago": {
-    "tipo": "mixto",
-    "monto_efectivo": 3000,
-    "monto_transferencia": 2000,
-    "monto_recibido": 3000,
+    "tipo": "efectivo",
+    "monto_efectivo": 0,
+    "monto_transferencia": 0,
+    "monto_recibido": 0,
     "cambio": 0
   },
   "config_moneda": {
