@@ -1,0 +1,44 @@
+{
+  "id": 198,
+  "fecha": "2025-12-19 20:14:14",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA PERSONAL",
+      "subtotal": 2000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "DORITO",
+      "subtotal": 3000.0
+    }
+  ],
+  "total": 5000.0,
+  "cliente": {
+    "nombre": "KAREN MENDOZA",
+    "identificacion": "22705360",
+    "telefono": "3002433009",
+    "email": "karenmendoza@gmail.com",
+    "direccion": "CRA 40 #65-12",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "mixto",
+    "monto_efectivo": 3000,
+    "monto_transferencia": 2000,
+    "monto_recibido": 3000,
+    "cambio": 0
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
