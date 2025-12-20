@@ -1,0 +1,44 @@
+{
+  "id": 202,
+  "fecha": "2025-12-19 20:33:13",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "DE TODITO NATURAL",
+      "subtotal": 3500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA PERSONAL",
+      "subtotal": 2000.0
+    }
+  ],
+  "total": 5500.0,
+  "cliente": {
+    "nombre": "STEVEN BAUSSA",
+    "identificacion": "1043664311",
+    "telefono": "3009626009",
+    "email": "stevenbaussamz@gmail.com",
+    "direccion": "CRA 60 #66 -135",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "efectivo",
+    "monto_efectivo": 5500,
+    "monto_transferencia": 0,
+    "monto_recibido": 10000,
+    "cambio": 4500
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
