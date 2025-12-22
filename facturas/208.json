@@ -1,0 +1,49 @@
+{
+  "id": 208,
+  "fecha": "2025-12-21 21:28:34",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "AGUA",
+      "subtotal": 2000.0
+    },
+    {
+      "cantidad": 2,
+      "nombre": "AGUARDIENTE CAJA 1L",
+      "subtotal": 100000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "COCA COLA 1,5L",
+      "subtotal": 7000.0
+    }
+  ],
+  "total": 109000.0,
+  "cliente": {
+    "nombre": "ALEX VICENT",
+    "identificacion": "1054685436",
+    "telefono": "3236565006",
+    "email": "alexcacorr00@gmail.com",
+    "direccion": "CR42 #54-12",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "efectivo",
+    "monto_efectivo": 109000,
+    "monto_transferencia": 0,
+    "monto_recibido": 120000,
+    "cambio": 11000
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
