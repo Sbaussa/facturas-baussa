@@ -18,9 +18,9 @@
     "puntos": 0
   },
   "metodo_pago": {
-    "tipo": "transferencia",
+    "tipo": "efectivo",
     "monto_efectivo": 0,
-    "monto_transferencia": 13000,
+    "monto_transferencia": 0,
     "monto_recibido": 0,
     "cambio": 0
   },
