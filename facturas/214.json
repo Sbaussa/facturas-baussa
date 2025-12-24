@@ -1,0 +1,39 @@
+{
+  "id": 214,
+  "fecha": "2025-12-23 21:48:35",
+  "items": [
+    {
+      "cantidad": 5,
+      "nombre": "SPEED STICK",
+      "subtotal": 65000.0
+    }
+  ],
+  "total": 65000.0,
+  "cliente": {
+    "nombre": "KAREN MENDOZA",
+    "identificacion": "22705360",
+    "telefono": "3002433009",
+    "email": "karenmendoza@gmail.com",
+    "direccion": "CRA 40 #65-12",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "mixto",
+    "monto_efectivo": 32500,
+    "monto_transferencia": 32500,
+    "monto_recibido": 32500,
+    "cambio": 0
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
