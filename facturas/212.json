@@ -1,0 +1,39 @@
+{
+  "id": 212,
+  "fecha": "2025-12-23 21:37:55",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "SPEED STICK",
+      "subtotal": 13000.0
+    }
+  ],
+  "total": 13000.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "identificacion": "",
+    "telefono": "",
+    "email": "",
+    "direccion": "Venta sin registro de cliente",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "efectivo",
+    "monto_efectivo": 13000,
+    "monto_transferencia": 0,
+    "monto_recibido": 13000,
+    "cambio": 0
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
