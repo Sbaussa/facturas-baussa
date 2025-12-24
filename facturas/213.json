@@ -1,0 +1,39 @@
+{
+  "id": 213,
+  "fecha": "2025-12-23 21:47:10",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "SPEED STICK",
+      "subtotal": 13000.0
+    }
+  ],
+  "total": 13000.0,
+  "cliente": {
+    "nombre": "ANGIE AYALA",
+    "identificacion": "1234567891",
+    "telefono": "3146575952",
+    "email": "angievalentina@gmail.com",
+    "direccion": "CRA 50 #120-12 APTO B430",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "transferencia",
+    "monto_efectivo": 0,
+    "monto_transferencia": 13000,
+    "monto_recibido": 0,
+    "cambio": 0
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
