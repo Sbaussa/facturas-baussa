@@ -1,0 +1,94 @@
+{
+  "id": 228,
+  "fecha": "2025-12-27 23:23:40",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 12000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "AGUA CRISTAL PERSONAL",
+      "subtotal": 2500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "AGUARDIENTE",
+      "subtotal": 55000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ DIANA",
+      "subtotal": 3500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CARNE DE CERDO XLB",
+      "subtotal": 8000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CHOCORRAMO",
+      "subtotal": 2500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "COCA-COLA PERSONAL",
+      "subtotal": 3000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "COCA-LOLA 1.5L",
+      "subtotal": 7000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CORONITA SIXPACK",
+      "subtotal": 25000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "MANZANA POSTOBON 250ML",
+      "subtotal": 1800.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "RON MEDELLIN 325ML 8AÑOS",
+      "subtotal": 48000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "SPEED STICK",
+      "subtotal": 13000.0
+    }
+  ],
+  "total": 181300.0,
+  "cliente": {
+    "nombre": "STEVEN BAUSSA",
+    "identificacion": "1043664311",
+    "telefono": "3009626009",
+    "email": "stevenbaussamz@gmail.com",
+    "direccion": "CRA 60 #66 -135",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "mixto",
+    "monto_efectivo": 61300,
+    "monto_transferencia": 120000,
+    "monto_recibido": 71300,
+    "cambio": 10000
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
