@@ -19,10 +19,10 @@
   },
   "metodo_pago": {
     "tipo": "efectivo",
-    "monto_efectivo": 2500,
+    "monto_efectivo": 0,
     "monto_transferencia": 0,
-    "monto_recibido": 10000,
-    "cambio": 7500
+    "monto_recibido": 0,
+    "cambio": 0
   },
   "config_moneda": {
     "simbolo": "$",
