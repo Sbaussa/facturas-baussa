@@ -1,0 +1,49 @@
+{
+  "id": 235,
+  "fecha": "2025-12-29 00:05:28",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "ARROZ DIANA",
+      "subtotal": 3500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "CARNE DE CERDO XLB",
+      "subtotal": 8000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 12000.0
+    }
+  ],
+  "total": 23500.0,
+  "cliente": {
+    "nombre": "NICOLE VILLAMIZAR",
+    "identificacion": "1043664574",
+    "telefono": "3006755884",
+    "email": "nicoleandre@gmail.com",
+    "direccion": "CALLE 50 #23-43",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "efectivo",
+    "monto_efectivo": 23500,
+    "monto_transferencia": 0,
+    "monto_recibido": 50000,
+    "cambio": 26500
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
