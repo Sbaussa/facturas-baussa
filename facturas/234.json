@@ -1,0 +1,49 @@
+{
+  "id": 234,
+  "fecha": "2025-12-29 00:04:54",
+  "items": [
+    {
+      "cantidad": 1,
+      "nombre": "AGUARDIENTE",
+      "subtotal": 55000.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "AGUA CRISTAL PERSONAL",
+      "subtotal": 2500.0
+    },
+    {
+      "cantidad": 1,
+      "nombre": "ACEITE PREMIER 1L",
+      "subtotal": 12000.0
+    }
+  ],
+  "total": 69500.0,
+  "cliente": {
+    "nombre": "CONTADO",
+    "identificacion": "",
+    "telefono": "",
+    "email": "",
+    "direccion": "Venta sin registro de cliente",
+    "puntos": 0
+  },
+  "metodo_pago": {
+    "tipo": "efectivo",
+    "monto_efectivo": 69500,
+    "monto_transferencia": 0,
+    "monto_recibido": 69500,
+    "cambio": 0
+  },
+  "config_moneda": {
+    "simbolo": "$",
+    "separador_miles": ".",
+    "separador_decimales": ",",
+    "decimales": 0
+  },
+  "empresa": {
+    "nombre": "TIENDA - POS BAUSSA",
+    "nit": "123456789-12",
+    "direccion": "Calle Principal #123",
+    "telefono": "300 928 8888"
+  }
+}
