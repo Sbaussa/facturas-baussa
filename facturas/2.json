@@ -1,27 +1,27 @@
 {
   "id": 2,
-  "fecha": "2025-12-28 19:21:14",
+  "fecha": "2026-01-02 15:39:26",
   "items": [
     {
       "cantidad": 1,
-      "nombre": "AGUARDIENTE 1L",
-      "subtotal": 60000.0
+      "nombre": "AGUA CRISTAL 200ML",
+      "subtotal": 1500.0
     }
   ],
-  "total": 60000.0,
+  "total": 1500.0,
   "cliente": {
-    "nombre": "STEVEN JUNIOR",
-    "identificacion": "1234567891",
-    "telefono": "3001234567",
-    "email": "stevenjunior@gmail.com",
-    "direccion": "CRA 123 #45-67",
+    "nombre": "CONTADO",
+    "identificacion": "",
+    "telefono": "",
+    "email": "",
+    "direccion": "Venta sin registro de cliente",
     "puntos": 0
   },
   "metodo_pago": {
     "tipo": "efectivo",
-    "monto_efectivo": 0,
+    "monto_efectivo": 1500,
     "monto_transferencia": 0,
-    "monto_recibido": 0,
+    "monto_recibido": 1500,
     "cambio": 0
   },
   "config_moneda": {
